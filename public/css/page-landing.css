@@ -1,46 +1,20 @@
 #page-landing {
   background: rgb(34,23,52);
   background: linear-gradient(90deg, rgba(34,23,52,1) 0%, rgba(12,176,209,1) 100%);
-
   text-align: center;
   min-height: 100vh;
-
   display: flex;
 }
 
 #container {
   margin: auto;
-
-  width: 90%;
+  width: min(90%, 112rem);
 }
 
-.location, h1, .visit p {
+.location,
+h1,
+.visit p {
   height: 16vh;
-}
-
-.visit a {
-  width:8rem;
-  height:8rem;
-  background: #ffd666;
-
-  border: none;
-  border-radius: 4rem;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin: auto;
-
-  transition: background 200ms;
-
-  border-width: 2px;
-  border-style: solid;
-  border-color: black;
-}
-
-.visit a:hover {
-  background: #96feff;
 }
 
 #logo {
@@ -53,6 +27,11 @@
 
 main h1 {
   animation-delay: 150ms;
+  font-size: clamp(4rem, 8vw, 8.4rem);
+}
+
+.visit a:hover {
+  background: #96feff;
 }
 
 .visit p {
@@ -60,5 +39,66 @@ main h1 {
 }
 
 .visit a {
+  width: 8rem;
+  height: 8rem;
+  background: #ffb666;
+  border: none;
+  border-radius: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  transition: background 200ms;
   animation-delay: 250ms;
+}
+
+/*desktop*/
+@media (min-width: 760px) {
+  #container {
+    padding: 5rem;
+    background: url("../images/bg.svg") no-repeat 80% /
+      clamp(30rem, 54vw, 56rem);
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .location,
+  h1,
+  .visit p {
+    height: initial;
+    text-align: initial;
+  }
+
+  .location {
+    text-align: right;
+    font-size: 2.4rem;
+    line-height: 1.5;
+  }
+
+  main h1 {
+    font-weight: bold;
+    line-height: 0.88;
+    margin: clamp(10%, 9vh, 12%) 0 4rem;
+    width: min(300px, 80%);
+  }
+
+  .visit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .visit p {
+    font-size: 2.4rem;
+    line-height: 1.5;
+    width: clamp(20rem, 20vw, 30rem);
+  }
+
+  .visit a {
+    margin: initial;
+  }
 }
